@@ -10,7 +10,7 @@ import WishesSection from "@/components/wishas-section";
 import { useEffect, useRef, useState } from "react";
 // ... import komponen lain
 
-export default function WeddingInvitation() {
+export default function Home() {
   const [isInvitationOpened, setIsInvitationOpened] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
