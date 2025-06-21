@@ -15,7 +15,7 @@ export default function WishesSection() {
     e.preventDefault();
     if (newWish.name && newWish.message && newWish.attendance) {
       const text = `Halo, saya ${newWish.name}.\n\nUcapan & Doa:\n${newWish.message}\n\nKonfirmasi Kehadiran: ${newWish.attendance}`;
-      const phoneNumber = "+6285640604572"; // Ganti dengan nomor tujuan (tanpa +)
+      const phoneNumber = "+6285860250027"; // Ganti dengan nomor tujuan (tanpa +)
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
         text
       )}`;
