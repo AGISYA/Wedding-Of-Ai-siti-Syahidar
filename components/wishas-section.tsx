@@ -3,6 +3,7 @@
 import type React from "react";
 import { MessageSquare, Send, Heart } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function WishesSection() {
   const [newWish, setNewWish] = useState({
@@ -15,14 +16,11 @@ export default function WishesSection() {
     e.preventDefault();
     if (newWish.name && newWish.message && newWish.attendance) {
       const text = `Halo, saya ${newWish.name}.\n\nUcapan & Doa:\n${newWish.message}\n\nKonfirmasi Kehadiran: ${newWish.attendance}`;
-      const phoneNumber = "+6285860250027"; // Ganti dengan nomor tujuan (tanpa +)
+      const phoneNumber = "6285860250027"; // Tanpa +
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
         text
       )}`;
-
       window.open(whatsappUrl, "_blank");
-
-      // Reset form
       setNewWish({ name: "", message: "", attendance: "" });
     }
   };
@@ -32,13 +30,25 @@ export default function WishesSection() {
       id="wishes"
       className="min-h-screen relative overflow-hidden py-16 px-4 pb-24"
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/bg-section.jpeg')" }}
-      ></div>
+      {/* Background */}
+      <div className="absolute inset-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/bg-section.jpeg')" }}
+        />
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+      </div>
 
+      {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto">
-        <div className="text-center mb-16">
+        {/* Header */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <MessageSquare className="w-16 h-16 text-emerald-600 mx-auto mb-4" />
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-emerald-500 mb-4">
             Ucapan & Doa
@@ -51,10 +61,16 @@ export default function WishesSection() {
             <Heart className="w-6 h-6 text-emerald-400" />
             <div className="w-16 h-px bg-emerald-300"></div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Bagian form ditengah */}
-        <div className="flex justify-center">
+        {/* Form */}
+        <motion.div
+          className="flex justify-center"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-8 w-full max-w-xl">
             <h3 className="text-2xl font-bold text-gray-800 mb-6">
               Kirim Ucapan
@@ -135,10 +151,16 @@ export default function WishesSection() {
               </button>
             </form>
           </div>
-        </div>
+        </motion.div>
 
         {/* Penutup */}
-        <div className="text-center mt-16 py-8 space-y-4">
+        <motion.div
+          className="text-center mt-16 py-8 space-y-4"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
           <p className="text-white italic">
             &quot;Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan
             untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung
@@ -156,7 +178,7 @@ export default function WishesSection() {
               Ai siti & Syahidar
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

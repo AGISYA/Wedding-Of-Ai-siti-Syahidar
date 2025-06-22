@@ -2,6 +2,7 @@
 
 import { Heart, Instagram } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function CoupleSection() {
   return (
@@ -9,21 +10,25 @@ export default function CoupleSection() {
       id="couple"
       className="min-h-screen relative overflow-hidden py-16 px-4"
     >
-      {/* Background Image */}
+      {/* Background */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('/images/bg-section.jpeg')",
         }}
       >
-        {/* Emerald Overlay */}
-        <div className="absolute inset-0 bg-emerald-600 opacity-10"></div>
+        <div className="absolute inset-0 bg-emerald-600 opacity-10" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           <h2 className="text-4xl md:text-5xl font-serif text-emerald-400 font-bold mb-4">
             Mempelai
           </h2>
@@ -32,12 +37,19 @@ export default function CoupleSection() {
             <Heart className="w-6 h-6 text-emerald-400" />
             <div className="w-16 h-px bg-emerald-300"></div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Couple Profiles */}
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           {/* Bride */}
-          <div className="text-center space-y-6">
+          <motion.div
+            className="text-center space-y-6"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            {/* Gambar & Nama */}
             <div className="relative">
               <div className="w-64 h-64 mx-auto mb-6 overflow-hidden relative">
                 <Image
@@ -60,7 +72,7 @@ export default function CoupleSection() {
                 Ai siti Nurlatifah
               </p>
               <p className="text-emerald-500">Putri Pertama dari</p>
-              <div className="">
+              <div>
                 <p className="text-white font-medium">Bapak Ade Kodir</p>
                 <p className="text-white">&</p>
                 <p className="text-white font-medium">Ibu Nani</p>
@@ -77,10 +89,16 @@ export default function CoupleSection() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Groom */}
-          <div className="text-center space-y-6">
+          <motion.div
+            className="text-center space-y-6"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
             <div className="relative">
               <div className="w-64 h-64 mx-auto mb-6 overflow-hidden relative">
                 <Image
@@ -103,12 +121,11 @@ export default function CoupleSection() {
                 Syahidar Rajabil Akbar
               </p>
               <p className="text-emerald-500">Putra Ketiga dari</p>
-              <div className="">
+              <div>
                 <p className="text-white font-medium">Bapak Ade Hidayat</p>
                 <p className="text-white">&</p>
                 <p className="text-white font-medium">Ibu Mimin</p>
               </div>
-
               <div className="inline-flex items-center space-x-1 mt-4 bg-white rounded-xl px-2 py-1 shadow">
                 <Instagram className="w-4 h-4 text-emerald-500" />
                 <a
@@ -121,24 +138,28 @@ export default function CoupleSection() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Love Story */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-8">
+        <motion.div
+          className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-8"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
           <h3 className="text-2xl font-serif font-bold text-center text-gray-800 mb-6">
             Kisah Cinta Kami
           </h3>
           <div className="prose prose-gray max-w-none text-center">
             <p className="text-gray-600 leading-relaxed">
-              &quot;Pertemuan kami dimulai dari sebuah kebetulan yang indah.
-              Dari perkenalan sederhana, tumbuh rasa saling mengenal, hingga
-              akhirnya Allah SWT mempertemukan hati kami dalam ikatan yang suci.
+              &quot;Pertemuan kami dimulai dari sebuah kebetulan yang indah...
               Kami percaya bahwa cinta sejati adalah anugerah terindah
               dari-Nya.&quot;
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
