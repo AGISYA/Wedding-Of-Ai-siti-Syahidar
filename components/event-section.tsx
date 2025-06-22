@@ -49,7 +49,6 @@ export default function EventSection() {
           {/* Akad Nikah */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-emerald-500">Akad Nikah</h3>
-            <p>Ijab Kabul</p>
 
             <div className="flex flex-col items-center space-y-2">
               <div className="flex items-center space-x-2">
@@ -84,7 +83,6 @@ export default function EventSection() {
           {/* Resepsi */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-emerald-500">Resepsi</h3>
-            <p>Walimatul Ursy</p>
 
             <div className="flex flex-col items-center space-y-2">
               <div className="flex items-center space-x-2">

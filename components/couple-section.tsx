@@ -59,19 +59,19 @@ export default function CoupleSection() {
               <p className="text-lg text-white font-medium">
                 Ai siti Nurlatifah
               </p>
-              <p className="text-gray-200">Putri Pertama dari</p>
-              <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm">
-                <p className="text-gray-800 font-medium">Bapak Ade Kodir</p>
-                <p className="text-gray-600">&</p>
-                <p className="text-gray-800 font-medium">Ibu Nani</p>
+              <p className="text-emerald-500">Putri Pertama dari</p>
+              <div className="">
+                <p className="text-white font-medium">Bapak Ade Kodir</p>
+                <p className="text-white">&</p>
+                <p className="text-white font-medium">Ibu Nani</p>
               </div>
-              <div className="flex items-center justify-center space-x-2 mt-4">
-                <Instagram className="w-5 h-5 text-emerald-500" />
+              <div className="inline-flex items-center space-x-1 mt-4 bg-white rounded-xl px-2 py-1 shadow">
+                <Instagram className="w-4 h-4 text-emerald-500" />
                 <a
                   href="https://instagram.com/stynl08"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-emerald-600 hover:text-emerald-700 font-medium"
+                  className="text-emerald-600 hover:text-emerald-700 text-sm font-medium"
                 >
                   @stynl08
                 </a>
@@ -102,19 +102,20 @@ export default function CoupleSection() {
               <p className="text-lg text-white font-medium">
                 Syahidar Rajabil Akbar
               </p>
-              <p className="text-gray-200">Putra Ketiga dari</p>
-              <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm">
-                <p className="text-gray-800 font-medium">Bapak Ade Hidayat</p>
-                <p className="text-gray-600">&</p>
-                <p className="text-gray-800 font-medium">Ibu Mimin</p>
+              <p className="text-emerald-500">Putra Ketiga dari</p>
+              <div className="">
+                <p className="text-white font-medium">Bapak Ade Hidayat</p>
+                <p className="text-white">&</p>
+                <p className="text-white font-medium">Ibu Mimin</p>
               </div>
-              <div className="flex items-center justify-center space-x-2 mt-4">
-                <Instagram className="w-5 h-5 text-teal-500" />
+
+              <div className="inline-flex items-center space-x-1 mt-4 bg-white rounded-xl px-2 py-1 shadow">
+                <Instagram className="w-4 h-4 text-emerald-500" />
                 <a
                   href="https://instagram.com/syahidar_ra"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-teal-600 hover:text-teal-700 font-medium"
+                  className="text-emerald-600 hover:text-emerald-700 text-sm font-medium"
                 >
                   @syahidar_ra
                 </a>
