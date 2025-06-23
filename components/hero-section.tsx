@@ -1,6 +1,6 @@
 "use client";
 
-// import { Button } from "@/components/ui/button";
+import { useSearchParams } from "next/navigation";
 import { Heart, Music, VolumeX, ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -17,6 +17,9 @@ export default function HomeSection({
   onOpenInvitation,
   isOpened,
 }: HomeSectionProps) {
+  const searchParams = useSearchParams();
+  const guestName = searchParams.get("to");
+
   const scrollToCouple = () => {
     const element = document.getElementById("welcome");
     if (element) {
@@ -59,14 +62,15 @@ export default function HomeSection({
           {/* Recipient */}
           <div className="space-y-3">
             <p className="text-base font-light">Kepada Yth:</p>
-            <h2 className="text-2xl font-semibold">Tamu Undangan</h2>
+            <h2 className="text-2xl font-semibold">
+              {guestName ? decodeURIComponent(guestName) : "Tamu Undangan"}
+            </h2>
             <p className="text-sm font-light italic">Di Tempat</p>
           </div>
 
           {/* Open Button */}
           <div className="pt-6">
             {!isOpened ? (
-              // Tombol untuk membuka undangan pertama kali
               <Button
                 onClick={onOpenInvitation}
                 className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm px-8 py-3 rounded-full text-base font-medium transition-all duration-300 hover:scale-105"
@@ -74,7 +78,6 @@ export default function HomeSection({
                 📧 Buka Undangan
               </Button>
             ) : (
-              // Tombol untuk scroll ke section couple setelah undangan dibuka
               <Button
                 onClick={scrollToCouple}
                 className="bg-white/20 hover:bg-white/30 text-white border border-white/30 backdrop-blur-sm px-8 py-3 rounded-full text-base font-medium transition-all duration-300 hover:scale-105"
@@ -85,7 +88,7 @@ export default function HomeSection({
           </div>
         </div>
 
-        {/* Scroll Indicator - hanya muncul setelah undangan dibuka */}
+        {/* Scroll Indicator */}
         {isOpened && (
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
             <ChevronDown className="w-8 h-8 text-white/70" />
@@ -105,7 +108,7 @@ export default function HomeSection({
         )}
       </button>
 
-      {/* Welcome Message - hanya muncul setelah undangan dibuka */}
+      {/* Welcome Message */}
       {isOpened && (
         <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 text-center text-white/80">
           <p className="text-sm">Selamat datang di undangan pernikahan kami</p>
