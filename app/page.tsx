@@ -7,8 +7,7 @@ import HomeSection from "@/components/hero-section";
 import Navigation from "@/components/navigation";
 import WelcomeSection from "@/components/wellcome-section";
 import WishesSection from "@/components/wishas-section";
-import { useEffect, useRef, useState } from "react";
-// ... import komponen lain
+import { useEffect, useRef, useState, Suspense } from "react";
 
 export default function Home() {
   const [isInvitationOpened, setIsInvitationOpened] = useState(false);
@@ -23,7 +22,6 @@ export default function Home() {
     setIsMuted((prev) => !prev);
   };
 
-  // Sinkronisasi mute dengan audio element
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.muted = isMuted;
@@ -51,21 +49,36 @@ export default function Home() {
 
       {/* Halaman sebelum dibuka */}
       {!isInvitationOpened ? (
-        <HomeSection
-          isMuted={isMuted}
-          onToggleMusic={toggleMusic}
-          onOpenInvitation={openInvitation}
-          isOpened={false}
-        />
-      ) : (
-        <>
-          {/* Setelah dibuka */}
+        <Suspense
+          fallback={
+            <div className="text-center py-10 text-white">
+              Loading undangan...
+            </div>
+          }
+        >
           <HomeSection
             isMuted={isMuted}
             onToggleMusic={toggleMusic}
             onOpenInvitation={openInvitation}
-            isOpened={true}
+            isOpened={false}
           />
+        </Suspense>
+      ) : (
+        <>
+          <Suspense
+            fallback={
+              <div className="text-center py-10 text-white">
+                Loading undangan...
+              </div>
+            }
+          >
+            <HomeSection
+              isMuted={isMuted}
+              onToggleMusic={toggleMusic}
+              onOpenInvitation={openInvitation}
+              isOpened={true}
+            />
+          </Suspense>
           <WelcomeSection />
           <CoupleSection />
           <EventSection />

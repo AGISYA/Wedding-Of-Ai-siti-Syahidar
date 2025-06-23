@@ -1,8 +1,8 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import { Heart, Music, VolumeX, ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
+import GuestName from "@/components/guestname";
 
 interface HomeSectionProps {
   isMuted: boolean;
@@ -17,9 +17,6 @@ export default function HomeSection({
   onOpenInvitation,
   isOpened,
 }: HomeSectionProps) {
-  const searchParams = useSearchParams();
-  const guestName = searchParams.get("to");
-
   const scrollToCouple = () => {
     const element = document.getElementById("welcome");
     if (element) {
@@ -62,9 +59,7 @@ export default function HomeSection({
           {/* Recipient */}
           <div className="space-y-3">
             <p className="text-base font-light">Kepada Yth:</p>
-            <h2 className="text-2xl font-semibold">
-              {guestName ? decodeURIComponent(guestName) : "Tamu Undangan"}
-            </h2>
+            <GuestName />
             <p className="text-sm font-light italic">Di Tempat</p>
           </div>
 
